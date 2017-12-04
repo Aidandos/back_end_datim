@@ -16,9 +16,14 @@ import java.util.UUID;
  */
 
 @RestController
+@RequestMapping("/users")
 public class UserServiceController {
 
-    @RequestMapping("/users")
+    @Autowired
+    private UserRepository userRepo;
+    
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public String index() {
         return "Greetings from Spring Boot!";
     }
