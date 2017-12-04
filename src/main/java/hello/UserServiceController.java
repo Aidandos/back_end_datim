@@ -16,7 +16,6 @@ import java.util.UUID;
  */
 
 @RestController
-@RequestMapping("/users")
 public class UserServiceController {
 
     static final String CONTEXT = "/users";
