@@ -18,7 +18,7 @@ import java.util.UUID;
 @RestController
 public class UserServiceController {
 
-    static final String CONTEXT = "/users";
+    @RequestMapping("/users")
     public String index() {
         return "Greetings from Spring Boot!";
     }
