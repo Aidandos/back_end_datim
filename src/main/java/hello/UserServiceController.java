@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -35,6 +36,14 @@ public class UserServiceController {
     public String index_id(){
             return "Greetings from Spring Boot!";
         };
-    }
+
+    //users - POST
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public String index_post(){
+        return "Greetings from Spring Boot!";
+    };
+}
 
 
