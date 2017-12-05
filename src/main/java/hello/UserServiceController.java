@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -23,19 +24,19 @@ public class UserServiceController {
 
     @Autowired
     private UserRepository userRepo;
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String blabla() {
-        return "Greetings from Spring Boot!";
-    }
+    
 
     //users - GET
-    @RequestMapping(method = RequestMethod.GET, value = "{userId}")
+    @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public String index_id(){
-            return "Greetings from Spring Boot!";
-        };
+    public List<User> listUsers() {
+        //logger.debug("listUsers");
+
+        List<User> result = new ArrayList<>();
+        userRepo.findAll().forEach(result::add);
+
+        return result;
+    }
 
     //users - POST
     @RequestMapping(method = RequestMethod.POST)
