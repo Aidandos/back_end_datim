@@ -2,6 +2,7 @@ package hello;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,12 +22,19 @@ public class UserServiceController {
 
     @Autowired
     private UserRepository userRepo;
-    
+
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public String index() {
+    public String blabla() {
         return "Greetings from Spring Boot!";
     }
 
-}
+    //users - GET
+    @RequestMapping(method = RequestMethod.GET, value = "{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public String index_id(){
+            return "Greetings from Spring Boot!";
+        };
+    }
+
 
