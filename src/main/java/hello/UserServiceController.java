@@ -41,9 +41,20 @@ public class UserServiceController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public String index_post(){
-        return "Greetings from Spring Boot!";
-    };
+    public UserAuthenticationWrapper addUser(@RequestBody User user) {
+
+        //logger.debug("addUser: " + user);
+
+        user.setStatus(UserStatus.OFFLINE);
+        String token = UUID.randomUUID().toString();
+        user.setToken(token);
+        user = userRepo.save(user);
+
+        UserAuthenticationWrapper userAuthenticationWrapper = new UserAuthenticationWrapper();
+        userAuthenticationWrapper.setUserToken(token);
+        userAuthenticationWrapper.setUserId(user.getId());
+        return userAuthenticationWrapper;
+    }
 }
 
 
