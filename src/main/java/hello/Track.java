@@ -2,10 +2,15 @@ package hello;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.stream.Location;
 
 /**
  * Created by timon on 06.12.2017.
@@ -26,6 +31,9 @@ public class Track {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany//(fetch = FetchType.EAGER)
+    private ArrayList<Location> gpsCoordinates;
 
     public Long getId() {
         return id;
@@ -49,5 +57,13 @@ public class Track {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public ArrayList<Location> getGpsCoordinates() {
+        return gpsCoordinates;
+    }
+
+    public void setGpsCoordinates(ArrayList<Location> gpsCoordinates) {
+        this.gpsCoordinates = gpsCoordinates;
     }
 }
