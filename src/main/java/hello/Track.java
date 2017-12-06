@@ -20,6 +20,10 @@ public class Track {
     @GeneratedValue
     private Long id;
 
+    @JsonIgnore
+    @Column(nullable = false, unique = true)
+    private String token;
+
     @Column(nullable = false)
     private String name;
 
@@ -39,4 +43,11 @@ public class Track {
         this.name = name;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

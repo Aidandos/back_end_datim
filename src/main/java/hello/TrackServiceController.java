@@ -41,12 +41,17 @@ public class TrackServiceController {
     //tracks - POST
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void addUser(@RequestBody Track track) {
+    public TrackAuthenticationWrapper addTrack(@RequestBody Track track) {
 
         //logger.debug("addUser: " + user);
-
+        String token = UUID.randomUUID().toString();
+        track.setToken(token);
         trackRepo.save(track);
 
+        TrackAuthenticationWrapper trackAuthenticationWrapper = new TrackAuthenticationWrapper();
+        trackAuthenticationWrapper.setTrackToken(token);
+        trackAuthenticationWrapper.setTrackId(track.getId());
+        return trackAuthenticationWrapper;
     }
 
 }
