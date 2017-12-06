@@ -23,8 +23,6 @@ public class Track {
     @Column(nullable = false)
     private String name;
 
-
-
     public Long getId() {
         return id;
     }

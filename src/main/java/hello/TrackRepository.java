@@ -10,5 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository("trackRepository")
 public interface TrackRepository extends CrudRepository<Track, Long> {
     Track findByName(String name);
-    Track findByID(Long id);
 }
