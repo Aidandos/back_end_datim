@@ -33,7 +33,7 @@ public class TrackServiceController {
         //logger.debug("listUsers");
 
         List<Track> result = new ArrayList<>();
-        //trackRepo.findAll().forEach(result::add);
+        trackRepo.findAll().forEach(result::add);
 
         return result;
     }
