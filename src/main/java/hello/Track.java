@@ -33,7 +33,7 @@ public class Track {
     private String name;
 
     @OneToMany//(fetch = FetchType.EAGER)
-    private ArrayList<Location> gpsCoordinates;
+    private List<Location> gpsCoordinates;
 
     public Long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Track {
         this.token = token;
     }
 
-    public ArrayList<Location> getGpsCoordinates() {
+    public List<Location> getGpsCoordinates() {
         return gpsCoordinates;
     }
 
-    public void setGpsCoordinates(ArrayList<Location> gpsCoordinates) {
+    public void setGpsCoordinates(List<Location> gpsCoordinates) {
         this.gpsCoordinates = gpsCoordinates;
     }
 }
