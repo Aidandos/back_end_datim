@@ -32,7 +32,7 @@ public class Track {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany//(fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = javax.xml.stream.Location.class)
     private List<Location> gpsCoordinates;
 
     public Long getId() {
