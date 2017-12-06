@@ -24,7 +24,7 @@ public class UserServiceController {
 
     @Autowired
     private UserRepository userRepo;
-    
+
 
     //users - GET
     @RequestMapping(method = RequestMethod.GET)
@@ -55,6 +55,24 @@ public class UserServiceController {
         userAuthenticationWrapper.setUserToken(token);
         userAuthenticationWrapper.setUserId(user.getId());
         return userAuthenticationWrapper;
+    }
+
+    //users/{userId}/login - POST
+    @RequestMapping(method = RequestMethod.POST, value = "{userId}/login")
+    @ResponseStatus(HttpStatus.OK)
+    public User login(@PathVariable Long userId) {
+        //logger.debug("login: " + userId);
+
+        User user = userRepo.findOne(userId);
+        if (user != null) {
+            user.setToken(UUID.randomUUID().toString());
+            user.setStatus(UserStatus.ONLINE);
+            user = userRepo.save(user);
+
+            return user;
+        }
+
+        return null;
     }
 }
 
