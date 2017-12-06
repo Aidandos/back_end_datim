@@ -26,7 +26,7 @@ public class TrackServiceController {
     private TrackRepository trackRepo;
 
 
-    //users - GET
+    //tracks - GET
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Track> listTracks() {
@@ -36,6 +36,17 @@ public class TrackServiceController {
         //trackRepo.findAll().forEach(result::add);
 
         return result;
+    }
+
+    //tracks - POST
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addUser(@RequestBody Track track) {
+
+        //logger.debug("addUser: " + user);
+
+        trackRepo.save(track);
+
     }
 
 }
