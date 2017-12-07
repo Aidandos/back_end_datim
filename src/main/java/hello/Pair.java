@@ -1,11 +1,12 @@
 package hello;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 
 @Entity
-public class Pair<K, V> {
+public class Pair<K, V> implements Serializable{
 
     public final K key;
     public final V value;
