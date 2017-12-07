@@ -2,6 +2,8 @@ package hello;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.springframework.data.util.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.xml.stream.Location;
 
 /**
@@ -32,8 +35,8 @@ public class Track {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(targetEntity = javax.xml.stream.Location.class)
-    private List<Location> gpsCoordinates;
+    @OneToOne
+    private List<Pair> gpsCoordinates;
 
     public Long getId() {
         return id;
@@ -59,11 +62,11 @@ public class Track {
         this.token = token;
     }
 
-    public List<Location> getGpsCoordinates() {
+    public List<Pair> getGpsCoordinates() {
         return gpsCoordinates;
     }
 
-    public void setGpsCoordinates(List<Location> gpsCoordinates) {
+    public void setGpsCoordinates(List<Pair> gpsCoordinates) {
         this.gpsCoordinates = gpsCoordinates;
     }
 }
