@@ -35,8 +35,8 @@ public class Track {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne
-    private List<Pair> gpsCoordinates;
+    //@OneToOne
+    //private List<Pair> gpsCoordinates;
 
     public Long getId() {
         return id;
@@ -62,11 +62,11 @@ public class Track {
         this.token = token;
     }
 
-    public List<Pair> getGpsCoordinates() {
-        return gpsCoordinates;
-    }
-
-    public void setGpsCoordinates(List<Pair> gpsCoordinates) {
-        this.gpsCoordinates = gpsCoordinates;
-    }
+//    public List<Pair> getGpsCoordinates() {
+//        return gpsCoordinates;
+//    }
+//
+//    public void setGpsCoordinates(List<Pair> gpsCoordinates) {
+//        this.gpsCoordinates = gpsCoordinates;
+//    }
 }
