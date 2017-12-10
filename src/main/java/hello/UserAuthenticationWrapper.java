@@ -2,15 +2,13 @@ package hello;
 
 import java.io.Serializable;
 
-/**
- * Created by rafael on 24/04/16.
- */
 public class UserAuthenticationWrapper implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String userToken;
     private Long userId;
+    private String userPassword;
 
     public String getUserToken() {
         return userToken;
@@ -27,4 +25,6 @@ public class UserAuthenticationWrapper implements Serializable {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+
 }

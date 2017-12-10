@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,18 +59,27 @@ public class UserServiceController {
     }
 
     //users/{userId}/login - POST
-    @RequestMapping(method = RequestMethod.POST, value = "{userId}/login")
+    @RequestMapping(method = RequestMethod.POST, value = "{userName}/login")
     @ResponseStatus(HttpStatus.OK)
-    public User login(@PathVariable Long userId) {
+    public UserAuthenticationWrapper login(@PathVariable String userName, @RequestParam("password") String password) {
         //logger.debug("login: " + userId);
 
-        User user = userRepo.findOne(userId);
+        User user = userRepo.findByUsername(userName);
+
         if (user != null) {
+            if(user.getPassword().equals(password)){
             user.setToken(UUID.randomUUID().toString());
             user.setStatus(UserStatus.ONLINE);
             user = userRepo.save(user);
+            UserAuthenticationWrapper userAuthenticationWrapper = new UserAuthenticationWrapper();
+            userAuthenticationWrapper.setUserToken(user.getToken());
+            userAuthenticationWrapper.setUserId(user.getId());
+            return userAuthenticationWrapper;
+            }
+            else{
+                return null;
+            }
 
-            return user;
         }
 
         return null;
