@@ -7,11 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
 public class Pair<K, V> implements Serializable{
 
-    @Id
-    @GeneratedValue
     private Long id;
     private static final long serialVersionUID = 1L;
 
