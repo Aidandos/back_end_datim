@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -35,6 +36,11 @@ public class Track {
     @Column(nullable = false)
     private String name;
 
+    @ElementCollection
+    ArrayList<Double> latitudes = new ArrayList<Double>();
+    @ElementCollection
+    ArrayList<Double> longitudes = new ArrayList<Double>();
+
     //@OneToOne
     //private List<Pair> gpsCoordinates;
 
@@ -61,6 +67,7 @@ public class Track {
     public void setToken(String token) {
         this.token = token;
     }
+
 
 //    public List<Pair> getGpsCoordinates() {
 //        return gpsCoordinates;
