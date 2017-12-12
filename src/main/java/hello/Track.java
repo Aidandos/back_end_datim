@@ -42,7 +42,7 @@ public class Track {
 
     @ElementCollection
     @Column(name="longitudes")
-    private ArrayList<Double> longitudes;
+    private List<Double> longitudes;
 
     //@OneToOne
     //private List<Pair> gpsCoordinates;
