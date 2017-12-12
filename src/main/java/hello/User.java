@@ -21,7 +21,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -48,6 +48,9 @@ public class User implements Serializable {
 
     @Column(nullable = false)
     private String password;
+
+    @OneToOne
+    private List<Activity> activities;
 
 
     public Long getId() {
@@ -96,5 +99,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
 }
