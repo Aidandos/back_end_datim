@@ -10,6 +10,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * Created by timon on 12.12.2017.
@@ -30,7 +31,7 @@ public class Activity  implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    @Column
+    @OneToOne
     private Track track;
 
     public Long getId() {
