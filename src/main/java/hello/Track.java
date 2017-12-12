@@ -6,6 +6,7 @@ import org.springframework.data.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -43,6 +44,9 @@ public class Track {
     @ElementCollection
     @Column(name="longitudes")
     private List<Double> longitudes;
+
+    @ElementCollection
+    private Map<Long, Double> ranking;
 
     //@OneToOne
     //private List<Pair> gpsCoordinates;
