@@ -37,9 +37,9 @@ public class Track {
     private String name;
 
     @ElementCollection
-    ArrayList<Double> latitudes = new ArrayList<Double>();
+    private ArrayList<Double> latitudes;
     @ElementCollection
-    ArrayList<Double> longitudes = new ArrayList<Double>();
+    private ArrayList<Double> longitudes;
 
     //@OneToOne
     //private List<Pair> gpsCoordinates;
