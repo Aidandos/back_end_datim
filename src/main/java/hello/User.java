@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -49,7 +50,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
-    @OneToOne
+    @ElementCollection
     private List<Activity> activities;
 
 
