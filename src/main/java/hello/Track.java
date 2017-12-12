@@ -37,8 +37,11 @@ public class Track {
     private String name;
 
     @ElementCollection
-    private ArrayList<Double> latitudes;
+    @Column(name="latitudes")
+    private List<Double> latitudes;
+
     @ElementCollection
+    @Column(name="longitudes")
     private ArrayList<Double> longitudes;
 
     //@OneToOne
