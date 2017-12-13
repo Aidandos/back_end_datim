@@ -54,6 +54,8 @@ public class User implements Serializable {
     private List<Activity> activities;
 
 
+
+
     public Long getId() {
         return id;
     }
