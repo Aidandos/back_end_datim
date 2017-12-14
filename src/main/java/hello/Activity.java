@@ -33,7 +33,7 @@ public class Activity  implements Serializable {
     private String name;
 
     @Column
-    private String tile;
+    private String title;
 
     @Column
     private double distance;
@@ -42,7 +42,7 @@ public class Activity  implements Serializable {
     @Column
     private double elevationLoss;
     @Column
-    private long time;
+    private String time;
     @Column
     private double pace;
 
@@ -85,12 +85,12 @@ public class Activity  implements Serializable {
         this.track = track;
     }
 
-    public String getTile() {
-        return tile;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTile(String tile) {
-        this.tile = tile;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public double getDistance() {
@@ -117,11 +117,11 @@ public class Activity  implements Serializable {
         this.elevationLoss = elevationLoss;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
