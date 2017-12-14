@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,6 +47,7 @@ public class TrackServiceController {
         //logger.debug("addUser: " + user);
         String token = UUID.randomUUID().toString();
         track.setToken(token);
+        track.setRanking(new HashMap<Long, Double>());
         trackRepo.save(track);
 
         TrackAuthenticationWrapper trackAuthenticationWrapper = new TrackAuthenticationWrapper();

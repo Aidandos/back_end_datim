@@ -45,7 +45,6 @@ public class Track {
     @Column(name="longitudes")
     private List<Double> longitudes;
 
-
     @ElementCollection
     private Map<Long, Double> ranking;
 
@@ -76,7 +75,29 @@ public class Track {
         this.token = token;
     }
 
+    public List<Double> getLatitudes() {
+        return latitudes;
+    }
 
+    public void setLatitudes(List<Double> latitudes) {
+        this.latitudes = latitudes;
+    }
+
+    public List<Double> getLongitudes() {
+        return longitudes;
+    }
+
+    public void setLongitudes(List<Double> longitudes) {
+        this.longitudes = longitudes;
+    }
+
+    public Map<Long, Double> getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(Map<Long, Double> ranking) {
+        this.ranking = ranking;
+    }
 //    public List<Pair> getGpsCoordinates() {
 //        return gpsCoordinates;
 //    }
