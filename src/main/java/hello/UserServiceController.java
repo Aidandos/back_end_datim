@@ -41,6 +41,16 @@ public class UserServiceController {
         return result;
     }
 
+    //users - GET
+    @RequestMapping(method = RequestMethod.GET, value = "{userName}/login")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Activity> listActivities(@RequestParam("userName") String username) {
+        //logger.debug("listUsers");
+        User user = userRepo.findByName(username);
+
+        return user.getActivities();
+    }
+
     //users - POST
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
