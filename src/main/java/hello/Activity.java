@@ -44,7 +44,7 @@ public class Activity  implements Serializable {
     @Column
     private String time;
     @Column
-    private double pace;
+    private String pace;
 
     @OneToOne
     private Track track;
@@ -125,11 +125,11 @@ public class Activity  implements Serializable {
         this.time = time;
     }
 
-    public double getPace() {
+    public String getPace() {
         return pace;
     }
 
-    public void setPace(double pace) {
+    public void setPace(String pace) {
         this.pace = pace;
     }
 
