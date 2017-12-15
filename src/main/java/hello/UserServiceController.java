@@ -44,11 +44,11 @@ public class UserServiceController {
     //users - GET
     @RequestMapping(method = RequestMethod.GET, value = "{userName}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Activity> listActivities(@PathVariable String userName) {
+    public User listActivities(@PathVariable String userName) {
         //logger.debug("listUsers");
         User user = userRepo.findByName(userName);
 
-        return user.getActivities();
+        return user;
     }
 
     //users - POST
