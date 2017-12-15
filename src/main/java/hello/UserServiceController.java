@@ -42,7 +42,7 @@ public class UserServiceController {
     }
 
     //users - GET
-    @RequestMapping(method = RequestMethod.GET, value = "{userName}/login")
+    @RequestMapping(method = RequestMethod.GET, value = "{userName}")
     @ResponseStatus(HttpStatus.OK)
     public List<Activity> listActivities(@RequestParam("userName") String username) {
         //logger.debug("listUsers");
