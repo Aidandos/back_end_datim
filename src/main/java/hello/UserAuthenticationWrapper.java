@@ -1,6 +1,7 @@
 package hello;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserAuthenticationWrapper implements Serializable {
 
@@ -9,6 +10,7 @@ public class UserAuthenticationWrapper implements Serializable {
     private String userToken;
     private Long userId;
     private String userPassword;
+    private List<Activity> activities;
 
     public String getUserToken() {
         return userToken;
@@ -26,5 +28,11 @@ public class UserAuthenticationWrapper implements Serializable {
         this.userId = userId;
     }
 
+    public List<Activity> getActivities() {
+        return activities;
+    }
 
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
+    }
 }
