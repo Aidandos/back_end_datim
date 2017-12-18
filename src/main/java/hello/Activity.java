@@ -32,8 +32,6 @@ public class Activity  implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private String title;
 
     @Column
     private double distance;
@@ -84,14 +82,7 @@ public class Activity  implements Serializable {
     public void setTrack(Track track) {
         this.track = track;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    
 
     public double getDistance() {
         return distance;
