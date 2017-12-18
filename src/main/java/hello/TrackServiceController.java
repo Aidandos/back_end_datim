@@ -34,7 +34,10 @@ public class TrackServiceController {
 
         List<Track> objects = new ArrayList<Track>();
         trackRepo.findAll().forEach(objects::add);
-        return objects;
+        if(objects!= null){
+            return objects;
+        }
+        return null;
     }
 
     //tracks - POST

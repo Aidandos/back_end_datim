@@ -50,7 +50,10 @@ public class UserServiceController {
         //logger.debug("listUsers");
         User user = userRepo.findByName(userName);
         List<Activity> activities = user.getActivities();
-        return activities;
+        if(activities != null){
+            return activities;
+        }
+        return null;
 
 
     }
