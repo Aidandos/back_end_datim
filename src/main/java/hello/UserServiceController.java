@@ -44,14 +44,11 @@ public class UserServiceController {
     //users - GET
     @RequestMapping(method = RequestMethod.GET, value = "{userName}")
     @ResponseStatus(HttpStatus.OK)
-    public UserAuthenticationWrapper listActivities(@PathVariable String userName) {
+    public List<Activity> listActivities(@PathVariable String userName) {
         //logger.debug("listUsers");
         User user = userRepo.findByName(userName);
-        UserAuthenticationWrapper userAuthenticationWrapper = new UserAuthenticationWrapper();
-        userAuthenticationWrapper.setUserToken(user.getToken());
-        userAuthenticationWrapper.setUserId(user.getId());
-        userAuthenticationWrapper.setActivities(user.getActivities());
-        return userAuthenticationWrapper;
+        List<Activity> activities = user.getActivities();
+        return activities;
 
 
     }

@@ -50,7 +50,7 @@ public class Activity  implements Serializable {
     private Track track;
 
     @Lob
-    @Column(name="picture")
+    @Column()
     private byte[] image;
 
     public Long getId() {
