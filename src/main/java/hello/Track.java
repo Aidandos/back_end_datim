@@ -46,6 +46,7 @@ public class Track {
     private List<Double> longitudes;
 
     @ElementCollection
+    @Column(name="maps")
     private Map<Long, Double> ranking;
 
     //@OneToOne
