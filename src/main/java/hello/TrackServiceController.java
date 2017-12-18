@@ -30,14 +30,13 @@ public class TrackServiceController {
     //tracks - GET
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<Track> listTracks() {
-        //logger.debug("listUsers");
+    public @ResponseBody List<Track> findAllObjects() {
 
-        List<Track> result = new ArrayList<>();
-        trackRepo.findAll().forEach(result::add);
-        if(result.isEmpty()==true)
+        List<Track> objects = new ArrayList<Track>();
+        trackRepo.findAll().forEach(objects::add);
+        if(objects.isEmpty()==true)
         {return null;}
-        return result;
+        return objects;
     }
 
     //tracks - POST
