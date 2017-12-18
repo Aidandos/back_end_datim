@@ -27,6 +27,8 @@ public class UserServiceController {
     private UserRepository userRepo;
     @Autowired
     private ActivityRepository activityRepository;
+    @Autowired
+    private TrackRepository trackRepository;
 
 
     //users - GET
@@ -110,6 +112,8 @@ public class UserServiceController {
 
         if (user != null) {
             activity.setToken(UUID.randomUUID().toString());
+            Track track = trackRepository.findOne(activity.getTrack().getId());
+            activity.setTrack(track);
             activityRepository.save(activity);
             user.getActivities().add(activity);
             userRepo.save(user);
