@@ -33,9 +33,9 @@ public class TrackServiceController {
     public @ResponseBody List<Track> findAllObjects() {
 
         List<Track> objects = new ArrayList<Track>();
-        //trackRepo.findAll().forEach(objects::add);
-        //if(objects.isEmpty()==true)
-        //{return null;}
+        trackRepo.findAll().forEach(objects::add);
+        if(objects.isEmpty()==true)
+        {return null;}
         return objects;
     }
 
