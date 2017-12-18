@@ -34,8 +34,6 @@ public class TrackServiceController {
 
         List<Track> objects = new ArrayList<Track>();
         trackRepo.findAll().forEach(objects::add);
-        if(objects.isEmpty()==true)
-        {return null;}
         return objects;
     }
 

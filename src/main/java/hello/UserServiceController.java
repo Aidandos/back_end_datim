@@ -46,7 +46,7 @@ public class UserServiceController {
     //users - GET
     @RequestMapping(method = RequestMethod.GET, value = "{userName}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Activity> listActivities(@PathVariable String userName) {
+    public @ResponseBody List<Activity> listActivities(@PathVariable String userName) {
         //logger.debug("listUsers");
         User user = userRepo.findByName(userName);
         List<Activity> activities = user.getActivities();
